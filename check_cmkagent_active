@@ -1,0 +1,15 @@
+#!/usr/bin/python
+
+import requests
+import os
+import sys
+
+address = sys.argv[1]
+cmd = 'telnet '+ address + ' 6556'
+out = os.popen(cmd).read()
+if len(out)>50:
+    output = 'out' + address
+    with open('/var/lib/check_cmkagent/'+ output, 'w') as f:
+        f.write(out)
+else:
+    print "error"
