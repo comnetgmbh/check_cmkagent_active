@@ -7,7 +7,6 @@ if len(sys.argv)<2:
     print "ERROR: need ip address as argument!"
     sys.exit(2)
 address = sys.argv[1]
-#address = '127.0.0.1'
 port = '6556'
 try:
     tn = telnetlib.Telnet(address, port, 1)
@@ -16,7 +15,6 @@ except:
     sys.exit(2)
 out = tn.read_all()
 if len(out)> 300:
-    #output = 'var/lib/check_cmkagent/' + address
     output = address
     with open(output, 'w') as f:
         f.write(out)
