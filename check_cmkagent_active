@@ -15,7 +15,7 @@ except:
     sys.exit(2)
 out = tn.read_all()
 if len(out)> 300:
-    output = address
+    output = '/var/lib/check_cmkagent/' + address
     with open(output, 'w') as f:
         f.write(out)
         print 'OK'
